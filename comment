@@ -1,0 +1,160 @@
+***************************************************************************************************
+    public це модифікатор доступу, який говорить про те,
+    що ми створюємо такий клас як Main, який повністю
+    відкритий для використання в інших файлах
+
+    static це модифікатор доступу
+
+    void це коли сама функція нічого не повертає
+
+    Змінні це комірки в пам'яті комп'ютера, куди можна покласти якусь
+    інформацію, і надалі можна отримувати доступ до цієї інформації
+
+    int     ---     4 байта     :::    від -2 147 483 648                 до 2 147 483 647
+    byte    ---     1 байт      :::    від -128                           до 127
+    short   ---     2 байта     :::    від -32 768                        до 32 767
+    long    ---     8 байтів    :::    від -9 223 372 036 854 775 808     до 9 223 372 036 854 775 807
+
+    char
+    float
+    double
+    String
+    Long
+
+    System.in - отримувати дані від користувача
+
+    Оператор scanner.close() використовується для
+    закриття сканера та звільнення ресурсів
+
+    Слово new використовується для виділення пам'яті
+
+    length повертає всю довжину масиву, наприклад arr.length
+***************************************************************************************************
+
+
+
+***************************************************************************************************
+    Написати програму, яка вводить вік користувача і, якщо йому більше 18
+    років, повідомляє, що він має право голосу. В іншому разі вона обчислює,
+    через скільки років користувач буде мати право голосу.
+---------------------------------------------------------------------------------------------------
+    public class Main {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Please, enter your age: ");
+            int age = scanner.nextInt();
+
+            if (age >= 18) {
+                System.out.println("You can vote");
+            } else {
+                int a = 18 - age;
+                System.out.println("You will be able to vote through " + a + " year(s)!");
+            }
+        }
+    }
+***************************************************************************************************
+
+
+
+***************************************************************************************************
+    public static void main(String[] args) {
+        int[] arr = new int[4];
+        Scanner scanner = new Scanner(System.in);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print("Enter a number: ");
+            int value = scanner.nextInt();
+            arr[i] = value;
+        }
+
+        int min = arr[0];
+            for(int i = 0; i < arr.length; i++) {
+                if(arr[i] < min) {
+                    min = arr[i];
+                }
+            }
+        System.out.println("Minimal " + min);
+    }
+***************************************************************************************************
+
+
+
+***************************************************************************************************
+        public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Enter line: ");
+                String line = scanner.nextLine();
+                System.out.println("You wrote this line: " + line);
+                scanner.close();
+        }
+***************************************************************************************************
+
+
+
+***************************************************************************************************
+        public class Main {
+            public static void main(String[] args) {
+                // Integer[] a = {1, 5, 7, 22 ,-3, 0};
+
+                int[] a = {1, 5, 7, 22 ,-3, 0};
+
+                // Arrays.sort(a, Collections.reverseOrder());
+
+                Arrays.sort(a);
+
+                System.out.println("Sorted array " + Arrays.toString(a));
+
+                int m = a[0];
+
+                for (int i = 1; i < a.length; i++) {
+                    if (a[i] < m) {
+                        m = a[i];
+                    }
+                }
+                System.out.println("Minimal element is " + m);
+            }
+        }
+***************************************************************************************************
+
+
+
+***************************************************************************************************
+                                            Сортування вибором
+---------------------------------------------------------------------------------------------------
+        public class Main {
+            public static void main(String[] args) {
+                int[] a = {64, 25, 12, 22, 6};
+
+                System.out.println("Array before sorting: ");
+                printArray(a);
+                selectionSort(a);
+
+                System.out.println("Array after selection sorting: ");
+                printArray(a);
+            }
+
+            public static void selectionSort(int[] a) {
+                int m = a.length; // змінна m приймає довжину масиву a
+
+                for (int i = 0; i < m - 1; i++) {
+                    int minIndex = i;
+
+                    for (int j = i + 1; j < m; j++) {
+                        if (a[j] < a[minIndex]) {
+                            minIndex = j;
+                        }
+                    }
+
+                    int t = a[i];
+                    a[i] = a[minIndex];
+                    a[minIndex] = t;
+                }
+            }
+
+            public static void printArray(int[] a) {
+                for(int num : a) {
+                    System.out.println(num + " ");
+                }
+            }
+        }
+***************************************************************************************************
